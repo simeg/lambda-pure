@@ -152,7 +152,7 @@ prompt_pure_preprompt_render() {
 
 	# NodeJS version
 	local rpreprompt
-	if [ ! -v "${PURE_NODE_DISABLED}" ]; then
+	if ! (( ${PURE_NODE_DISABLED} )); then
 	    rpreprompt+="%F{green}⬢ ${prompt_pure_node_version}%f"
 	fi
 

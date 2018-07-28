@@ -151,7 +151,10 @@ prompt_pure_preprompt_render() {
 	preprompt+="%F{cyan}${prompt_pure_cmd_exec_time}%f"
 
 	# NodeJS version
-	local rpreprompt="%F{green}⬢ ${prompt_pure_node_version}%f"
+	local rpreprompt
+	if [ ! -v "${PURE_NODE_DISABLED}" ]; then
+	    rpreprompt+="%F{green}⬢ ${prompt_pure_node_version}%f"
+	fi
 
 	integer preprompt_left_length preprompt_right_length space_length
 	prompt_pure_string_length_to_var "${preprompt}" "preprompt_left_length"
